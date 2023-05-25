@@ -6,7 +6,7 @@ const PDFDownloadButton = () => {
     // This could be a server request to generate the PDF or a direct link to a static PDF file
     // For the sake of this example, let's assume the PDF file already exists and we're linking to it
     const link = document.createElement("a");
-    link.href = "/src/assets/matthewraymondcv-5d7b6074.pdf";
+    link.href = "https://matthewraymondcv.tiiny.site";
     link.download = "Matthew Raymond CV.pdf";
     document.body.appendChild(link);
     link.click();
