@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import PDFDownloadButton from "./PDFDownloadButton";
 
 const Navbar = () => {
   const [active, setActive] = useState("`");
@@ -14,7 +15,7 @@ const Navbar = () => {
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           to="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 "
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
@@ -26,19 +27,42 @@ const Navbar = () => {
             <span className="sm:block hidden"> | Software Developer</span>
           </p>
         </Link>
+        {/* <ul className="list-none hidden sm:flex flex-row gap-3">
+          <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            My Blog
+          </button>
+        </ul> */}
         <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((link) => (
             <li
               key={link.id}
               className={`${
                 active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              } hover:text-white text-[18px] font-medium cursor-pointer `}
               onClick={() => setActive(link.title)}
             >
               <a href={`#${link.id}`}>{link.title}</a>
             </li>
           ))}
+          <li
+            className={`${
+              active === "My Blog" ? "text-white" : "text-secondary"
+            } hover:text-white text-[18px] font-medium cursor-pointer `}
+            onClick={() => setActive("My Blog")}
+          >
+            <a
+              href="https://matthewraymond-blog.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white  bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+              onClick={() => setActive("My Blog")}
+            >
+              My Blog
+            </a>
+          </li>
+          {/* <PDFDownloadButton /> */}
         </ul>
+
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
