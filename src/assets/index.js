@@ -33,6 +33,7 @@ import picmera from "./picmera.png";
 import zener from "./zener.png";
 import eater from "./eater.png";
 import filmoon from "./filmoon.png";
+import matthewraymondcv from "./matthewraymondcv.pdf";
 
 export {
   logo,
@@ -67,4 +68,5 @@ export {
   zener,
   eater,
   filmoon,
+  matthewraymondcv,
 };
